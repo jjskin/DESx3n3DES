@@ -24,7 +24,7 @@ def DESx3Encrypt(read):
 
 
 def TDESEncrypt(read):
-    reszta = 8 - len(read)%8
+    reszta = 24 - len(read)%24
     read = read + b' '*reszta
 
     cipherT = DES3.new(keyT, DES3.MODE_ECB)
@@ -93,7 +93,6 @@ durationDesX3D = datetime.datetime.now() - startDesX3D
 
 output = open('outputDESx3.txt', 'w')
 output.write(bytes.fromhex(outDESx3.hex()).decode('utf-8'))
-print(outDESx3)
 output.close()
 #------------------------------------------------------------------------------------------------#
 
